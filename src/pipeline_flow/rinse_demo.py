@@ -1,10 +1,10 @@
-"""Invented, compartment-based Rinse mass-balance demonstration.
+"""Keep track of water and product in a simplified Rinse example.
 
-This is NOT a validated two-phase flow or industrial cleaning solver.
-Three successive, well-mixed *effective* compartments exchange water and mobile
-product; wall product detaches at an invented first-order rate. There is no
-inference of physical film shapes, pressure, microbiological cleaning or flow
-regime. Model relationships are general conservation bookkeeping only.
+Water and mobile product move between hypothetical mixing compartments.
+A separate first-order term moves product from the wall inventory into the
+mobile inventory. The example checks conservation of both materials.
+
+This does not calculate real cleaning performance or two-phase flow.
 """
 from dataclasses import dataclass
 from math import isfinite
