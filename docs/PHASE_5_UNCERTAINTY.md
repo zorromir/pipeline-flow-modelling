@@ -1,16 +1,16 @@
 # Phase 5 — Input uncertainty with scrambled Sobol sampling
 
-**Status:** Public numerical demonstration and implementation verification; **not experimental validation**, calibration, or a statement of accuracy for the industrial process.
+I wanted to understand how much the simulated Push results change when I vary inputs such as air pressure or friction. This is a public **AI-assisted reconstruction** using hypothetical parameter ranges. It illustrates uncertainty propagation, not calibrated industrial accuracy.
 
 ## Research basis
 
-The project report distinguishes sensitivity and uncertainty propagation from parameter fitting. Its Push section identifies the Darcy friction factor, holdup fraction and outlet-loss coefficient as uncertain modelling inputs; the wider research method uses quasi-Monte Carlo (QMC) methods. This open implementation uses an independently written, simplified moving-column model previously introduced in Phase 2. It does not reproduce a confidential uncertainty study or its input distributions.
+In my original research, uncertainty in model inputs was an important part of assessing the results. Here I use the simplified public Push equations and a scrambled Sobol design to explore the effect of changing four inputs. I have not reused the company's data, parameter estimates or uncertainty distributions.
 
-## Question
+## What I wanted to find out
 
 How sensitive are simulated product discharge and the time to a target removal fraction to plausible *illustrative* variation in model inputs?
 
-## Mathematical setup
+## How I set up the calculations
 
 For a deterministic numerical solver $g(\boldsymbol\theta)$, let the uncertain parameters be $\boldsymbol\theta=(p_{T,0},f_D,K_{\mathrm{out}},\beta)$. An independently scrambled four-dimensional Sobol design produces $\mathbf u_j\in(0,1)^4$. Each $\theta_i$ is mapped linearly under the deliberately invented uniform assumption $\theta_i\sim U(a_i,b_i)$, independently across dimensions. This is a **scenario design**, not a fitted probability distribution.
 
@@ -22,7 +22,7 @@ The model is run with identical fixed geometry and gas settings. We examine
 
 We report sample quantiles $q_{0.1},q_{0.5},q_{0.9}$ and descriptive Spearman rank correlations between each input and $T_{50}$. The rank correlations **are not variance-based Sobol indices**, even though the *sample design* uses Sobol points. The quantiles are **not calibrated prediction or confidence intervals**.
 
-## Hypothetical input intervals
+## Input ranges used in the example
 
 | Input | Interval | Units | Interpretation |
 |---|---|---|---|
@@ -33,7 +33,7 @@ We report sample quantiles $q_{0.1},q_{0.5},q_{0.9}$ and descriptive Spearman ra
 
 All other inputs use the invented defaults in `PushStageSettings`: 100 m uniform horizontal pipe, 0.2 m diameter, density 1000 kg/m³, initial air volume 2 m³, polytropic exponent 1.2, atmospheric outlet pressure, target 50% discharged liquid. These values **are not representative of or drawn from a company's installation**.
 
-## Method and reproducibility
+## Running the experiment
 
 `src/pipeline_flow/uncertainty.py` uses `scipy.stats.qmc.Sobol(scramble=True, seed=20261101)` with $N=2^8=256$ scenarios. The existing `simulate_push_stage` ODE solver is called for each parameter vector. Stalls, time limits or invalid states are **errors rather than silently dropped samples**. Sample envelopes are calculated at 51 common fractions of discharged-product target; the seed, bounds and numerical tolerances are recorded in code.
 
