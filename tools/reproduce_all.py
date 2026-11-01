@@ -1,7 +1,7 @@
-"""Run all independently defined synthetic figure generators.
+"""Regenerate all synthetic figures from the public Python examples.
 
-Run from the repository root with `python tools/reproduce_all.py`.
-Additional diagnostic plots are intentionally not committed.
+Run from the repository root: python tools/reproduce_all.py
+Extra diagnostic plots are not all committed to Git.
 """
 from pathlib import Path
 import subprocess
