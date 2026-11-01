@@ -1,8 +1,8 @@
 # Phase 2 — Air-driven liquid-column displacement
 
-This chapter describes the **public numerical demonstration**. It does not disclose the employer's experimental records, simulation code, equipment dimensions, calibrated parameters or internal report. The equations come from the published one-dimensional air-driven emptying approach of Tijsseling et al. (2016), adapted to a uniform horizontal pipe with explicit modelling assumptions.
+The idea here is simple: compressed air pushes a liquid column towards the outlet, and I want to calculate how the motion changes over time. This public example is an **AI-assisted reconstruction** of selected mathematical ideas from my industrial project. It uses the one-dimensional equations discussed by Tijsseling et al. (2016), simplified to a uniform horizontal pipe with invented parameters. It does not include the original company code or measurements.
 
-## Model states
+## What the model follows
 
 The solver integrates two time-dependent quantities:
 
@@ -19,7 +19,7 @@ The holdup fraction describes the idealized share of passed volume that stays be
 
 ## Momentum balance
 
-The uniform-area, horizontal-pipe balance is
+To represent the pressure force, liquid inertia and flow resistance, I use the following uniform-area, horizontal-pipe balance:
 
 $$
 \left(1-\frac{\beta}{2}\right)L\frac{dv_T}{dt}
@@ -39,7 +39,7 @@ V_g(t)=V_{g,0}+Ax(t), \qquad
 p_T(t)=p_{T,0}\left(\frac{V_{g,0}}{V_g(t)}\right)^n.
 $$
 
-The latter re-evaluates pressure at every trial state inside the ODE solver. Both $p_T$ and $p_{\rm out}$ are **absolute pressures** (Pa). No compressor operating curve, active air replenishment, or full tank dynamics is modelled.
+In the expanding-air case, the solver updates pressure as the gas volume changes. Both $p_T$ and $p_{\rm out}$ are **absolute pressures** (Pa). No compressor operating curve, active air replenishment, or full tank dynamics is modelled.
 
 ## Product-volume balance
 
@@ -66,7 +66,7 @@ pytest
 python examples/push_stage_figures.py
 ```
 
-The four new plots appear in `figures/` as SVG and PNG. Only invented input parameters are used. The example can be explored from an installed Python interpreter:
+The figure script writes plots into `figures/` as SVG and PNG. Only invented input parameters are used. The example can be explored from an installed Python interpreter:
 
 ```python
 from pipeline_flow import PushStageSettings, simulate_push_stage
@@ -80,4 +80,4 @@ print(result.stop_reason, result.stop_time_s)
 - **Verified by tests:** internally consistent mass/volume bookkeeping, physical bounds, stopping events, the two pressure laws and numerical convergence for selected synthetic cases.
 - **Not established:** predictive accuracy against experimental data, calibration transferability, or suitability for any industrial installation.
 - **Not implemented:** segmented pipe diameter/elevation, actual air-tank replenishment, viscosity-dependent friction factor, waterhammer, and downstream Blow/Rinse/Dry models.
-- **Research attribution:** Tijsseling, Hou, Bozkuş & Laanearu (2016), *Improved One-Dimensional Models for Rapid Emptying and Filling of Pipelines*, [DOI 10.1115/1.4031508](https://doi.org/10.1115/1.4031508). Our implementation is original, independent code for a restricted published model class, not a reproduction of the original authors' entire software.
+- **Research attribution:** Tijsseling, Hou, Bozkuş & Laanearu (2016), *Improved One-Dimensional Models for Rapid Emptying and Filling of Pipelines*, [DOI 10.1115/1.4031508](https://doi.org/10.1115/1.4031508). The public code was reconstructed with AI assistance from published equations. It is not the authors' original software or my confidential industrial implementation.
