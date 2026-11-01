@@ -2,15 +2,9 @@
 
 ## Status
 
-This is a **standalone, independently written, synthetic process demonstration**.
-It illustrates material inventories and process-stage interfaces. It is neither a
-full four-stage engineering calculation nor an experimental cleaning/drying model.
+After displacing the product, the system may need rinsing and drying. I wanted to show how water and product inventories can be tracked without losing material when moving from one stage to the next.
 
-The internal technical report motivating the broader project distinguishes four
-operational stages and documents a Rinse state containing water, mobile product,
-and wall product per segment, followed by a simpler Dry state containing remaining
-water. It explicitly notes empirical Rinse cleaning and a provisional first-order
-Dry approximation. The report itself and industrial source code are **not** included.
+This public example is an **AI-assisted reconstruction** using invented compartments and removal rates. It is not a copy of the original Rinse or Dry code, and it does not calculate real cleaning effectiveness. The original industrial report and data remain confidential.
 
 ## Rinse — compartment inventories and product conservation
 
@@ -37,7 +31,7 @@ $$
 \dot I_W=q,\qquad \dot O_W=a_NW_N,\qquad \dot O_P=a_NP_N.
 $$
 
-Two exact *global* conservation identities are asserted in software:
+I check the following overall conservation identities in the code:
 
 $$
 I_W=\sum_i W_i+O_W, \qquad
@@ -54,9 +48,7 @@ compressor, hydration, real dilution-concentration or hygienic submodels.
 
 This demonstration terminates when the **cumulative supplied water** first
 reaches an illustrative goal $I_W^*=48\,\mathrm L$, not at an experimentally
-verified cleanliness target. The industrial report's current Rinse software is
-also described as predominantly time driven; this demonstration is not presented
-as a reproduction of its real control logic.
+verified cleanliness target. The chosen water-volume goal is only a stopping rule for this example, not a copy of the company's control logic.
 
 ## Typed Rinse → Dry transfer
 
@@ -78,7 +70,7 @@ Dry stops at a chosen fraction of initial Dry-stage water removed,
 $1-W/W_0\geq f_{\rm target}$, *if* it can reach that fraction before a maximum
 duration. Otherwise its stop reason is `time_limit`. A zero-rate case is
 supported. This is a **surrogate stopping definition**: the report does not yet
-fix a definitive mathematical industrial dryness criterion. Product stays
+fix a validated industrial dryness criterion. Product stays
 unchanged in this simple Dry model; gas flow is only passed through as metadata.
 
 ## Example and results
@@ -106,7 +98,7 @@ zero initial product, zero removal rate, unattainable targets, and Rinse/Dry
 state continuity. These are **mathematical/software tests**, not external
 physical validation.
 
-Full Cioncolini–Thome annular pressure drop, real water/product reology,
+Full Cioncolini–Thome annular pressure drop, real water/product rheology,
 compressor coupling, empirically calibrated cleaning kinetics, actual dryer
 performance, branched pipelines and a full Push→Blow→Rinse→Dry solver are
 **not** implemented in the public package.
