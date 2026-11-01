@@ -1,10 +1,8 @@
-"""Elementary illustrative film inventory model, NOT an annular solver.
+"""Explore an assumed first-order decay of residual liquid-film inventory.
 
-We demonstrate first-order decay of invented film inventories using fixed,
-user-supplied removal rates. This does not implement or validate the
-Cioncolini--Thome correlations, wall-shear transfer, product rheology or
-company-specific stripping dynamics. No Blow transition output is passed
-into this model automatically.
+This is a simple inventory calculation, not an annular-flow or film-stripping
+model. Its removal rates are hypothetical and are not derived from wall shear,
+fluid rheology or the Cioncolini–Thome correlations.
 """
 from dataclasses import dataclass
 from math import isfinite, exp
