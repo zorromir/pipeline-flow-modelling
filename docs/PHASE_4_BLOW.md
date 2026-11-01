@@ -2,12 +2,12 @@
 
 ## Status
 
-Two **independent public teaching examples** are implemented:
+After Push, there can still be liquid inside the pipe. I wanted to show two related questions without pretending that the public code solves all the two-phase-flow physics:
 
-1. A constant-pressure, uniform-diameter, one-dimensional moving-column transition, with explicitly tracked outflow and tail leakage.
-2. A generic first-order residual-film inventory demonstration using independently chosen hypothetical rates.
+1. How much liquid leaves a shortening full column, and how much is left behind?
+2. How would a remaining liquid-film inventory change if I assume a simple removal rate?
 
-These examples **do not** form an integrated industrial Blow simulator. They do not implement the Cioncolini–Thome annular-flow correlations or infer film-removal rates from gas flow. There is no measured boundary pressure, compressor curve, private product property, calibration, or field-data validation.
+These are **separate AI-assisted reconstructions** with hypothetical inputs. They are not a coupled industrial Blow simulator. In particular, the public code does not implement the full Cioncolini–Thome annular-flow correlations or derive film-removal rates from gas flow.
 
 ## Transition: balance laws and scope
 
@@ -21,7 +21,7 @@ $$
 
 For \(\alpha=1\), no liquid is retained at the tail within this bookkeeping. For \(0<\alpha<1\), a fraction is left behind; it is not yet assumed to be a validated uniform wall film.
 
-The **restricted demonstration** uses a constant upstream absolute pressure and an externally specified outflow pressure. Its momentum equation is
+The column-transition example uses a constant upstream absolute pressure and an externally specified outflow pressure. Its momentum equation is
 
 $$
 \frac{dU}{dt}
@@ -59,7 +59,7 @@ The parameter \(k\) is a directly assumed, hypothetical constant. **It is not in
 
 ## Why annular correlations are not yet in the public implementation
 
-The underlying technical report distinguishes the transition from an annular gas–liquid model. Its annular stage uses literature correlations by Cioncolini and Thome (2012, 2013 and 2017) for void fraction, film asymmetry and pressure drop/wall stress. Their domains of applicability must be assessed before use for a new diameter, fluid, or flow regime. Merely labelling the gas–liquid mixture 'annular' does not establish the regime. The current repository deliberately does **not** copy company software or reproduce unverified internal empirical film-stripping constants.
+In the original research, the column transition and annular gas–liquid flow were separate modelling problems. Published correlations by Cioncolini and Thome (2012, 2013 and 2017) address void fraction, film asymmetry and pressure drop/wall stress. Their domains of applicability must be assessed before use for a new diameter, fluid, or flow regime. Merely labelling the gas–liquid mixture 'annular' does not establish the regime. I have not included company software or internal film-stripping parameters in the public examples.
 
 Future work would require a **public-source-only** implementation of the full correlations, published benchmark verification, explicit flow-pattern checks and independent experimental validation where disclosure is permitted. Do not label the current demonstration a validated annular-pressure or product-removal model.
 
@@ -89,4 +89,4 @@ All tests use hypothetical inputs; no accuracy-versus-measurement result is clai
 
 ## Attribution
 
-Public scientific context: Laanearu et al. (2012; 2014), Tijsseling et al. (2016), and Cioncolini–Thome (2012; 2013; 2017). Full citations are in [sources.md](../references/sources.md). The research basis is drawn from the user's private technical report (Section 6 and Appendix E), which **must not be committed or included in a public archive**. This repository contains an independently written subset for education and demonstration only.
+Public scientific context: Laanearu et al. (2012; 2014), Tijsseling et al. (2016), and Cioncolini–Thome (2012; 2013; 2017). Full citations are in [sources.md](../references/sources.md). The original industrial project and its internal report informed the topics I chose, but the report itself remains confidential. The public examples were reconstructed with AI assistance from published mathematics and do not contain the original implementation.
