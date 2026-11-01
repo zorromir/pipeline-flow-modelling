@@ -1,4 +1,8 @@
-"""Public, data-free examples of published pipe-flow relationships."""
+"""Public examples of pipe-flow mathematics.
+
+The models are part of the AI-assisted reconstruction explained in README.md.
+They are not the original industrial software.
+"""
 
 from .balances import ProductVolumeBalance, product_volume_balance
 from .geometry import PipeSegment, PipeNetwork, ActivePart
