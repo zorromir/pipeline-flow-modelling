@@ -1,9 +1,9 @@
-"""Reproduce Phase 5 uncertainty plots with invented, independent uniform inputs.
+"""Generate the Push uncertainty plots from hypothetical input ranges.
 
-Run after: pip install -e '.[dev]'
+Run after installing the development dependencies:
     python examples/phase5_uncertainty_figures.py
 
-No factory measurements, calibrated priors, proprietary geometry or datasets.
+The plots show numerical sample summaries, not measured predictions.
 """
 from pathlib import Path
 
