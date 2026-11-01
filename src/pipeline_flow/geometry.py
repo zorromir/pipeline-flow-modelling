@@ -1,11 +1,11 @@
-"""Original, data-free 1D geometry utilities for consecutive pipe segments.
+"""Represent connected pipe sections and their volumes.
 
-Definitions follow standard geometric identities: A=pi*D²/4 and
-V(a,b)=sum_i A_i * length([a,b] intersection segment_i).
+Uses standard geometry: A = pi*D²/4 and
+V(a,b) = sum of the volume inside each intersected segment.
 
-A local K value belongs to the **downstream end** of its original
-physical segment. It must not be counted when the interval ends early.
-No industrial geometry or employer source code is included.
+Each local loss K belongs to the downstream end of its physical segment,
+so it is not counted if a selected interval ends before that point.
+All example geometry is hypothetical.
 """
 
 from dataclasses import dataclass
