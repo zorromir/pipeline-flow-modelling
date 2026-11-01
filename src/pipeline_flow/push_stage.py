@@ -1,16 +1,15 @@
-"""Uniform-area 1D Push example with two independently defined air boundaries.
+"""Simulate a moving liquid column under two air-pressure assumptions.
 
-Equations are independently implemented from the published moving-column
-balance in Tijsseling et al. (2016). No employer code or measured values are used.
+This AI-assisted public example is based on the published one-dimensional
+moving-column balance of Tijsseling et al. (2016). It uses hypothetical inputs.
 
 States: Q = outlet liquid volume flow [m^3/s]; x = interface advance [m].
-For a constant holdup fraction beta and pipe area A,
+With a constant holdup fraction beta and area A:
 
   v = Q / ((1-beta)*A),       d(x)/dt = v,       L = L0-x.
 
-The published uniform-column momentum balance is integrated in its signed
-quadratic resistance form. For nonnegative v this matches the v^2 form.
-Model is intentionally limited to one horizontal, uniform-diameter pipe.
+The signed quadratic resistance form agrees with the published v^2 form
+for forward motion. The example assumes a horizontal, uniform-diameter pipe.
 """
 
 from dataclasses import dataclass
