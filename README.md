@@ -86,7 +86,9 @@ This is only an automated check. It cannot establish whether publication is lega
 
 The main starting point for the moving-column equations is Tijsseling, Hou, Bozkuş and Laanearu (2016), [*Improved One-Dimensional Models for Rapid Emptying and Filling of Pipelines*](https://doi.org/10.1115/1.4031508). Chen et al. (2024), [*Experimental data on filling and emptying of a large-scale pipeline*](https://doi.org/10.1038/s41597-024-03441-7), provide useful public experimental context; their data are not included in these examples.
 
-Other sources, including annular-flow papers that are **not implemented** in this repository, are listed in [references/sources.md](references/sources.md).
+Three additional papers I used for the literature review were [Hart et al. (1989)](https://doi.org/10.1016/0301-9322(89)90023-2) on low liquid holdup and pressure losses, [Cioncolini and Thome (2012)](https://doi.org/10.1016/j.ijmultiphaseflow.2012.03.003) on annular void fraction, and [Cioncolini and Thome (2013)](https://doi.org/10.1016/j.ijmultiphaseflow.2012.12.003) on uneven liquid films in horizontal pipes. Their correlations are **not implemented** in the public code.
+
+See [references/sources.md](references/sources.md) for bibliographic details, project relevance and limits.
 
 ## What the results do and do not show
 

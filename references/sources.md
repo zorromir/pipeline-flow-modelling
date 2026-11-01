@@ -14,9 +14,18 @@ The illustrative ideal-gas/polytropic relation and volume-balance identity are s
 4. J. Laanearu et al. (2014). *Semi-Empirical Method for Estimation of Energy Losses in a Large-Scale Pipeline*. Procedia Engineering **70**, 969–977. https://doi.org/10.1016/j.proeng.2014.02.108  
    **Why I included it:** It discusses energy-loss modelling for large-scale pipelines.
 
-5. A. Cioncolini and J. R. Thome (2012). *Void Fraction Prediction in Annular Two-Phase Flow*. International Journal of Multiphase Flow **43**, 72–84. https://doi.org/10.1016/j.ijmultiphaseflow.2012.03.003  
-6. A. Cioncolini and J. R. Thome (2013). *Liquid Film Circumferential Asymmetry Prediction in Horizontal Annular Two-Phase Flow*. International Journal of Multiphase Flow **51**, 44–54. https://doi.org/10.1016/j.ijmultiphaseflow.2012.12.003  
-7. A. Cioncolini and J. R. Thome (2017). *Pressure Drop Prediction in Annular Two-Phase Flow in Macroscale Tubes and Channels*. International Journal of Multiphase Flow **89**, 321–330. https://doi.org/10.1016/j.ijmultiphaseflow.2016.11.003  
-   **Not implemented:** Items 5–7 are useful further reading on annular flow. Their correlations are not implemented or validated in this repository.
+5. J. Hart, P. J. Hamersma and J. M. H. Fortuin (1989). *Correlations Predicting Frictional Pressure Drop and Liquid Holdup During Horizontal Gas–Liquid Pipe Flow With a Small Liquid Holdup*. International Journal of Multiphase Flow **15**(6), 947–964. https://doi.org/10.1016/0301-9322(89)90023-2  
+   **Why I used it:** The apparent-rough-surface (ARS) model connects small liquid holdup, wall wetting and pressure losses in a horizontal pipe. The full ARS model is not implemented in the public examples.
+
+6. A. Cioncolini and J. R. Thome (2012). *Void Fraction Prediction in Annular Two-Phase Flow*. International Journal of Multiphase Flow **43**, 72–84. https://doi.org/10.1016/j.ijmultiphaseflow.2012.03.003  
+   **Why I used it:** The paper links annular void fraction to vapour quality and the gas-to-liquid density ratio. Its published correlation is not implemented here.
+
+7. A. Cioncolini and J. R. Thome (2013). *Liquid Film Circumferential Asymmetry Prediction in Horizontal Annular Two-Phase Flow*. International Journal of Multiphase Flow **51**, 44–54. https://doi.org/10.1016/j.ijmultiphaseflow.2012.12.003  
+   **Why I used it:** It describes gravity-driven liquid-film asymmetry and disturbance waves around horizontal tubes. Its correlation is not implemented here.
+
+8. A. Cioncolini and J. R. Thome (2017). *Pressure Drop Prediction in Annular Two-Phase Flow in Macroscale Tubes and Channels*. International Journal of Multiphase Flow **89**, 321–330. https://doi.org/10.1016/j.ijmultiphaseflow.2016.11.003  
+   **Further reading:** Annular-flow pressure-drop context, also not implemented.
+
+These articles inform the physical background of the project; citing a paper does not mean its full model has been implemented or validated against company data.
 
 The equations in this repository were reconstructed into simplified public Python examples with AI assistance. These sources are not papers I authored, and the original industrial code and measurements remain confidential. See the [README](../README.md).
