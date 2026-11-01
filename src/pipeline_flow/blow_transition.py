@@ -1,15 +1,13 @@
-"""Public, independently written control-volume transition for air-driven emptying.
+"""Track liquid leaving a shortening column and liquid left behind.
 
-This is a teaching-level, constant-pressure, uniform-pipe demonstration of
-published control-volume relationships. It does not reproduce any private
-implementation, its calibration, or an industrial compressor/film model.
+This simplified public control-volume example was reconstructed with AI
+assistance from published flow relationships and hypothetical parameters.
+It is not the company's original Blow model or an annular-flow calculation.
 
-The column leaves liquid behind when 0 < alpha < 1. If U is the outlet
-liquid speed and A the area, dL/dt=-U/alpha, Qout=A*U,
-Qtail=A*U*(1/alpha - 1). The signs are fixed for nonnegative U.
+For outlet liquid speed U and pipe area A:
+  dL/dt=-U/alpha, Qout=A*U, Qtail=A*U*(1/alpha-1).
 
-Scientific context: published pipeline-emptying control-volume models.
-No internal report, proprietary simulation or calibration is included.
+These expressions assume nonnegative U.
 """
 from dataclasses import dataclass
 from math import isfinite, pi
