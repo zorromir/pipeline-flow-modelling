@@ -1,13 +1,11 @@
-"""Scrambled-Sobol uncertainty study for the *illustrative* public Push solver.
+"""Explore how assumed Push input ranges affect the simulated results.
 
-The parameter intervals below are invented for educational numerical experiments.
-They are NOT calibrated distributions, measurement uncertainties, or confidence
-intervals for any real pipeline. All quantities and their units are explicit.
+A scrambled Sobol design samples four independent hypothetical uniform
+parameter ranges. The results include sample quantiles and Spearman rank
+correlations. The correlations are not variance-based Sobol indices.
 
-The run treats these inputs as independent Uniform(a, b) assumptions. It reports
-sample quantiles; the sensitivity diagnostics are Spearman rank correlations,
-NOT Sobol sensitivity indices. A scrambled Sobol design is a sampling METHOD,
-not a statistical validation of these invented inputs.
+These ranges are not fitted to industrial measurements; the figures do not
+give experimentally validated prediction or confidence intervals.
 """
 
 from dataclasses import dataclass, replace
