@@ -1,7 +1,7 @@
-"""Two original, data-free plots illustrating geometry and Darcy pressure losses.
+"""Plot hypothetical pipe pressure losses for two different geometries.
 
 Run: python examples/phase3_pipe_figures.py
-All inputs are hypothetical and intentionally unrelated to test equipment.
+The inputs are invented for this public reconstruction.
 """
 from pathlib import Path
 import sys
