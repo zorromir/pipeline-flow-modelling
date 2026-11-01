@@ -1,9 +1,8 @@
 # Phase 3 — Pipe geometry and resistance
 
-This phase adds an independent, public **steady single-phase** pipeline layer.
-Its content uses only elementary geometric identities and the published Darcy–Weisbach relation, not private installation layouts, industrial records or employer implementation code.
+In a real pipeline, different sections can have different diameters, lengths and heights. I wanted to see how much those differences matter when calculating pressure losses. This public, **AI-assisted reconstruction** uses standard pipe geometry and Darcy–Weisbach equations with invented inputs. It is a steady, single-phase example, not the company's actual pipe layout or source code.
 
-## 1. Geometry as consecutive physical segments
+## 1. Representing the pipe in sections
 
 For each section $i$, specify a length $L_i$, inner diameter $D_i$, endpoint elevations $z_{i,-},z_{i,+}$ and a dimensionless local loss $K_i$. Its cross-sectional area and volume are
 
@@ -21,7 +20,7 @@ and the corresponding liquid volume is $V(a,b)=\sum_i A_i\ell_i(a,b)$. The inver
 
 **Convention:** a section's local $K_i$ is applied at its **downstream physical end**, not redistributed when a section is divided into numerical subintervals. Endpoint heights must agree between adjacent sections. At a diameter junction `area_at(x)` selects the downstream area.
 
-## 2. Pressure loss for a given liquid flow
+## 2. Calculating pressure losses
 
 For the *same* forward volume flow $Q\ge 0$ through a series of incompressible, constant-density Newtonian liquid sections,
 
@@ -36,7 +35,7 @@ The model sums physical losses across consecutive sections. Elevation contributi
 
 **Not included:** kinetic-head changes across diameter transitions, additional area-change/entrance losses unless assigned to a separate $K_i$, compressibility, gas–liquid slip, spatially variable fluid density, waterhammer, Reynolds-based automatic friction factors, reversed flow, branching networks and full CFD. Those are separate physics, not silently handled by the code. The wall roughness field is stored for traceability but **not used** to derive $f_D$; Darcy factors are specified inputs. Fanning and Darcy friction factors are not interchangeable ($f_D=4 f_F$).
 
-## 3. Why volume equivalence is not pressure equivalence
+## 3. Why equal volume does not mean equal resistance
 
 The volume-equivalent diameter is
 
@@ -44,7 +43,7 @@ $$
 D_{\mathrm{eq}}=\sqrt{\frac{4\sum_i A_iL_i}{\pi\sum_i L_i}}.
 $$
 
-It preserves *total pipe volume*. It **does not** preserve $\sum_i f_{D,i}L_i v_i^2/D_i$ because velocity depends on $D_i^{-2}$ and friction strongly on diameter. Our demonstration compares identical pipe volume, total height change and the same sum of local $K$ values (aggregated at the equivalent outlet). The discrepancy therefore reflects differences in how local cross-sections and losses are represented; it should not be used as a corrected prediction for an actual plant.
+It preserves *total pipe volume*. It **does not** preserve $\sum_i f_{D,i}L_i v_i^2/D_i$ because velocity depends on $D_i^{-2}$ and friction strongly on diameter. The example compares identical pipe volume, total height change and the same sum of local $K$ values (aggregated at the equivalent outlet). The discrepancy therefore reflects differences in how local cross-sections and losses are represented; it should not be used as a corrected prediction for an actual plant.
 
 ## 4. Code files and checks
 
@@ -65,7 +64,7 @@ All dimensions and coefficients in the example are **invented**. They are not me
 
 ## 5. Model integration boundary
 
-The Phase 2 Push solver still assumes one uniform horizontal pipe. Phase 3 implements and verifies the **common geometry/steady-hydraulics layer separately**; it does **not** claim to have coupled that layer to the moving-column ODE. Doing so requires a consistent transient segmented momentum equation, special care at diameter junctions and new numerical-convergence tests. Similarly, the Phase 4 Blow solver will need regime-specific two-phase pressure losses rather than directly applying these one-phase relations.
+The Push model still assumes one uniform horizontal pipe. Phase 3 implements and verifies the **common geometry/steady-hydraulics layer separately**; it does **not** claim to have coupled that layer to the moving-column ODE. Doing so requires a consistent transient segmented momentum equation, special care at diameter junctions and new numerical-convergence tests. Similarly, the Phase 4 Blow solver will need regime-specific two-phase pressure losses rather than directly applying these one-phase relations.
 
 ### Literature basis
 
