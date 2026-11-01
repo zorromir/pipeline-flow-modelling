@@ -1,38 +1,34 @@
-# Phase 7 — Public repository consolidation
+# Public repository release notes
 
-## Objective
+The public repository is now available at [github.com/zorromir/pipeline-flow-modelling](https://github.com/zorromir/pipeline-flow-modelling). I use it to show selected modelling methods from my six-month industrial research project.
 
-Make the independent examples of published flow mathematics easier to review: a short README, five selected source-generated figures, one canonical `src/pipeline_flow/` package, reproducible sample scripts, a simple CI workflow and an explicit disclosure boundary.
+**Disclosure:** The original industrial work was mine. The public code is an **AI-assisted reconstruction** of selected mathematical examples, not the original company implementation. It contains hypothetical inputs rather than confidential measurements or specifications.
 
-## What changed
+## What I included
 
-1. Replaced the historical phase-by-phase README with a concise research summary, a five-figure gallery and accurate model boundaries.
-2. Kept the complete modular source and tests from Phases 1–6. Separate models are **not** falsely connected into a validated four-stage solver.
-3. Retained five representative chart pairs (PNG + SVG); the other 16 chart types are regenerable from the scripts but not versioned.
-4. Added `tools/reproduce_all.py` and `tools/audit_release.py` to make reproduction and basic privacy checks repeatable.
-5. Expanded CI to run all figure-generation programs and publication preflight.
+- One installable Python package under `src/pipeline_flow/`.
+- Separate Push, pipe-resistance, Blow, uncertainty and Rinse/Dry examples.
+- Five selected plots generated from Python; the scripts can regenerate additional figures.
+- Unit tests, numerical stopping conditions and conservation checks.
+- A GitHub Actions workflow for running tests, reproducing figures and checking for obvious disclosure mistakes.
 
-## Verification evidence
+The modules are related, but they do **not** form one validated four-stage industrial model.
 
-- Date: 2026-11-01.
-- Environment: Python 3.13.5 with existing NumPy 2.3.5, SciPy 1.17.0, Matplotlib 3.10.8, and pytest 9.0.2.
-- Install: fresh local copy of the package installed in editable mode using available dependencies in this runtime (not an independent clean-room dependency download).
-- Tests: **177 passed** (no failed tests).
-- Figure scripts: all six completed, including 256 scrambled-Sobol Push scenarios.
-- Volume/transfer checks: as implemented in the tests and example scripts. They demonstrate numerical consistency, **not validation against measurements**.
-- Privacy check: a conservative filename and keyword scan; a human disclosure review is still required.
+## Numerical checks at the time of consolidation
 
-## Limitations before final release
+On 1 November 2026 I tested a separate local copy of the release:
 
-- Verify ownership and permission to publish independently written code referencing company experience.
-- Confirm none of the published numerical values or descriptions inadvertently disclose sensitive operational information.
-- Obtain or decide an explicit software licence separately; none is granted here.
-- Dedicated GitHub repository `pipeline-flow-modelling` requires manual creation if it does not already exist; do not point the portfolio to it until upload is verified.
+- Python 3.13.5 with installed NumPy, SciPy, Matplotlib and pytest dependencies.
+- **177 tests passed** in that local environment.
+- All six figure-generation scripts completed, including the 256-scenario scrambled Sobol example.
+- A conservative file and keyword scan found no obvious prohibited input files.
 
-## Checklist for GitHub upload
+This was a local verification run, not an independent reproduction of the original industrial experiments. The repository's GitHub Actions workflow should also be checked after later commits.
 
-1. Create an empty public repo named `pipeline-flow-modelling` without auto-generated README or licence.
-2. Extract the Phase 7 ZIP, open a terminal **inside** `pipeline-flow-modelling`, and run `python -m pip install -e ".[dev]"` plus `python -m pytest`.
-3. Run `python tools/audit_release.py`, review `git status` and `git diff --cached` and check the images.
-4. Commit and push only the files in this release package.
-5. Verify GitHub renders the README and all five curated plot links before changing the portfolio's repository link.
+## Publication boundary
+
+I do not publish the employer's code, data, geometry, calibration or original report. Numerical examples use published mathematics and invented parameters.
+
+The automated release check does not establish legal permission to publish or guarantee that sensitive material could never appear. Further code or industrial results should only be added after a manual disclosure and rights review. No software licence has yet been granted.
+
+For the current project overview and installation instructions, see the [README](../README.md). For future changes, use the [publication checklist](PUBLICATION_CHECKLIST.md).
