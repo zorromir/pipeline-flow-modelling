@@ -1,7 +1,8 @@
-"""Standalone first-order residual-water demonstration with explicit Rinse handoff.
+"""Show a simple decrease in residual water after Rinse.
 
-The illustrative first-order coefficient is not tied to air mass flow,
-physical airflow, humidity, true wetness or microbiological cleanliness.
+The model starts from the water inventory passed over from Rinse and uses
+an assumed first-order removal rate. The rate is not derived from airflow,
+humidity or an industrial drying experiment.
 """
 from dataclasses import dataclass
 from math import isfinite, log
