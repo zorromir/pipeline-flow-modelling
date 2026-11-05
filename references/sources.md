@@ -28,4 +28,4 @@ The illustrative ideal-gas/polytropic relation and volume-balance identity are s
 
 These articles inform the physical background of the project; citing a paper does not mean its full model has been implemented or validated against company data.
 
-The equations in this repository were reconstructed into simplified public Python examples with AI assistance. These sources are not papers I authored, and the original industrial code and measurements remain confidential. See the [README](../README.md).
+These are external scientific sources, not papers I authored. The public Python examples use published mathematics and hypothetical inputs; the original industrial code and measurements remain confidential. See the [README](../README.md) for provenance.

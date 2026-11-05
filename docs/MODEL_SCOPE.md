@@ -1,6 +1,6 @@
 # What the public models cover
 
-The main point of this repository is to show **selected mathematical ideas**, not to reproduce the whole industrial simulator. The original company code and test data are confidential. I used AI to help rebuild these smaller examples from published equations and hypothetical inputs.
+This repository presents selected mathematical models and numerical examples rather than the complete industrial simulator. The original company code and measurements remain confidential. The public examples use published equations and hypothetical inputs.
 
 ## Which parts are implemented?
 
@@ -22,4 +22,4 @@ The examples do not include an industrial compressor curve, active tank replenis
 
 The ODE examples use `scipy.integrate.solve_ivp`. The tests cover physical stopping conditions, volume balances, numerical consistency and selected convergence cases. This is useful for checking the **implementation**, but it is not the same as showing the model matches real measurements.
 
-All parameter values in the public examples are hypothetical and unrelated to any installation I worked on. The [README](../README.md) explains the AI-assisted reconstruction and confidentiality boundary in more detail.
+All parameter values in the public examples are hypothetical and unrelated to any installation I worked on. The [README](../README.md) explains the public implementation's provenance and confidentiality boundary.

@@ -21,4 +21,4 @@ python tools/reproduce_all.py
 
 Only the five selected plot pairs (PNG and SVG) are committed. Other diagnostic figures can be regenerated from the code.
 
-The public plotting code is part of the **AI-assisted reconstruction** described in the [README](../README.md). No confidential datasets or original industrial figures were used.
+The plotting code uses hypothetical inputs; no confidential datasets or original industrial figures were used. See the [README](../README.md) for provenance and limitations.

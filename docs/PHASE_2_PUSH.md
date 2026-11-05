@@ -1,6 +1,6 @@
-# Phase 2 — Air-driven liquid-column displacement
+# Push — air-driven liquid-column displacement
 
-The idea here is simple: compressed air pushes a liquid column towards the outlet, and I want to calculate how the motion changes over time. This public example is an **AI-assisted reconstruction** of selected mathematical ideas from my industrial project. It uses the one-dimensional equations discussed by Tijsseling et al. (2016), simplified to a uniform horizontal pipe with invented parameters. It does not include the original company code or measurements.
+The idea here is simple: compressed air pushes a liquid column towards the outlet, and I want to calculate how the motion changes over time. This public example illustrates selected mathematical ideas from my industrial project. It uses the one-dimensional equations discussed by Tijsseling et al. (2016), simplified to a uniform horizontal pipe with invented parameters. It does not include the original company code or measurements.
 
 ## What the model follows
 
@@ -80,4 +80,4 @@ print(result.stop_reason, result.stop_time_s)
 - **Verified by tests:** internally consistent mass/volume bookkeeping, physical bounds, stopping events, the two pressure laws and numerical convergence for selected synthetic cases.
 - **Not established:** predictive accuracy against experimental data, calibration transferability, or suitability for any industrial installation.
 - **Not implemented:** segmented pipe diameter/elevation, actual air-tank replenishment, viscosity-dependent friction factor, waterhammer, and downstream Blow/Rinse/Dry models.
-- **Research attribution:** Tijsseling, Hou, Bozkuş & Laanearu (2016), *Improved One-Dimensional Models for Rapid Emptying and Filling of Pipelines*, [DOI 10.1115/1.4031508](https://doi.org/10.1115/1.4031508). The public code was reconstructed with AI assistance from published equations. It is not the authors' original software or my confidential industrial implementation.
+- **Research attribution:** Tijsseling, Hou, Bozkuş & Laanearu (2016), *Improved One-Dimensional Models for Rapid Emptying and Filling of Pipelines*, [DOI 10.1115/1.4031508](https://doi.org/10.1115/1.4031508). The public code is an illustrative implementation of published equations, not the authors' software or my confidential industrial implementation.

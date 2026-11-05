@@ -1,13 +1,13 @@
-# Phase 4 — Blow: moving-column transition and film inventory
+# Blow — moving-column transition and film inventory
 
-## Status
+## Model overview
 
 After Push, there can still be liquid inside the pipe. I wanted to show two related questions without pretending that the public code solves all the two-phase-flow physics:
 
 1. How much liquid leaves a shortening full column, and how much is left behind?
 2. How would a remaining liquid-film inventory change if I assume a simple removal rate?
 
-These are **separate AI-assisted reconstructions** with hypothetical inputs. They are not a coupled industrial Blow simulator. In particular, the public code does not implement the full Cioncolini–Thome annular-flow correlations or derive film-removal rates from gas flow.
+These are separate numerical demonstrations with hypothetical inputs. They are not a coupled industrial Blow simulator. In particular, the public code does not implement the full Cioncolini–Thome annular-flow correlations or derive film-removal rates from gas flow.
 
 ## Transition: balance laws and scope
 
@@ -61,7 +61,7 @@ The parameter \(k\) is a directly assumed, hypothetical constant. **It is not in
 
 In the original research, the column transition and annular gas–liquid flow were separate modelling problems. Published correlations by Cioncolini and Thome (2012, 2013 and 2017) address void fraction, film asymmetry and pressure drop/wall stress. Their domains of applicability must be assessed before use for a new diameter, fluid, or flow regime. Merely labelling the gas–liquid mixture 'annular' does not establish the regime. I have not included company software or internal film-stripping parameters in the public examples.
 
-Future work would require a **public-source-only** implementation of the full correlations, published benchmark verification, explicit flow-pattern checks and independent experimental validation where disclosure is permitted. Do not label the current demonstration a validated annular-pressure or product-removal model.
+A validated extension would require implementation of the full published correlations, benchmark verification, explicit flow-pattern checks and independent experimental validation where disclosure is permitted. The current demonstration is not a validated annular-pressure or product-removal model.
 
 ## Reproduce
 
@@ -89,4 +89,4 @@ All tests use hypothetical inputs; no accuracy-versus-measurement result is clai
 
 ## Attribution
 
-Public scientific context: Laanearu et al. (2012; 2014), Tijsseling et al. (2016), and Cioncolini–Thome (2012; 2013; 2017). Full citations are in [sources.md](../references/sources.md). The original industrial project and its internal report informed the topics I chose, but the report itself remains confidential. The public examples were reconstructed with AI assistance from published mathematics and do not contain the original implementation.
+Public scientific context: Laanearu et al. (2012; 2014), Tijsseling et al. (2016), and Cioncolini–Thome (2012; 2013; 2017). Full citations are in [sources.md](../references/sources.md). The original industrial project and its internal report informed the topics I chose, but the report itself remains confidential. The public examples use published mathematics and hypothetical inputs rather than the original confidential implementation.

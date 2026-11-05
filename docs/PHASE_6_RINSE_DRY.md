@@ -1,10 +1,10 @@
-# Phase 6 — Rinse, Dry and explicit state transfer
+# Rinse, Dry and explicit state transfer
 
-## Status
+## Model overview
 
 After displacing the product, the system may need rinsing and drying. I wanted to show how water and product inventories can be tracked without losing material when moving from one stage to the next.
 
-This public example is an **AI-assisted reconstruction** using invented compartments and removal rates. It is not a copy of the original Rinse or Dry code, and it does not calculate real cleaning effectiveness. The original industrial report and data remain confidential.
+This public numerical example uses invented compartments and removal rates. It is not a copy of the original Rinse or Dry code, and it does not calculate real cleaning effectiveness. The original industrial report and data remain confidential.
 
 ## Rinse — compartment inventories and product conservation
 

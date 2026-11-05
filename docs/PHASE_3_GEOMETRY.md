@@ -1,6 +1,6 @@
-# Phase 3 — Pipe geometry and resistance
+# Pipe geometry and resistance
 
-In a real pipeline, different sections can have different diameters, lengths and heights. I wanted to see how much those differences matter when calculating pressure losses. This public, **AI-assisted reconstruction** uses standard pipe geometry and Darcy–Weisbach equations with invented inputs. It is a steady, single-phase example, not the company's actual pipe layout or source code.
+In a real pipeline, different sections can have different diameters, lengths and heights. I wanted to see how much those differences matter when calculating pressure losses. The public numerical example uses standard pipe geometry and Darcy–Weisbach equations with invented inputs. It is a steady, single-phase example, not the company's actual pipe layout or source code.
 
 ## 1. Representing the pipe in sections
 

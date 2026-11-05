@@ -1,6 +1,6 @@
-# Phase 5 — Input uncertainty with scrambled Sobol sampling
+# Input uncertainty with scrambled Sobol sampling
 
-I wanted to understand how much the simulated Push results change when I vary inputs such as air pressure or friction. This is a public **AI-assisted reconstruction** using hypothetical parameter ranges. It illustrates uncertainty propagation, not calibrated industrial accuracy.
+I wanted to understand how much the simulated Push results change when I vary inputs such as air pressure or friction. This public numerical example uses hypothetical parameter ranges. It illustrates uncertainty propagation, not calibrated industrial accuracy.
 
 ## Research basis
 
