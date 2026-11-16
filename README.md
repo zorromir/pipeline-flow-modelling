@@ -40,6 +40,4 @@ The moving-column example is based primarily on Tijsseling, Hou, Bozkuş and Laa
 
 ## Provenance and limitations
 
-The public implementation was recreated **with AI assistance** from published mathematics and hypothetical parameters to illustrate selected methods from the original industrial work. It is not my original company code or an exact recreation of that installation. The tests verify equations, numerical behaviour and conservation, **not** predictive accuracy against industrial measurements.
-
-No employer source files, measurements, calibration values or internal figures are published. No open-source licence has been assigned, so public availability does not grant general reuse rights.
+The public implementation was recreated **with AI assistance** from published mathematics and hypothetical parameters to illustrate selected methods from the original industrial work. 
